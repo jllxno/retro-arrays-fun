@@ -1,15 +1,76 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // 1. Declaración e inicialización de un arreglo
+        int[] numeros = {5, 2, 8, 1, 9, 3, 7, 4, 6};
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // 2. Imprimir el arreglo original
+        System.out.println("Arreglo original:");
+        imprimirArreglo(numeros);
+
+        // 3. Encontrar el número mayor
+        int mayor = encontrarMayor(numeros);
+        System.out.println("El número mayor es: " + mayor);
+
+        // 4. Calcular el promedio
+        double promedio = calcularPromedio(numeros);
+        System.out.println("El promedio es: " + promedio);
+
+        // 5. Invertir el arreglo
+        invertirArreglo(numeros);
+        System.out.println("Arreglo invertido:");
+        imprimirArreglo(numeros);
+
+        // 6. Ordenar el arreglo
+        ordenarArreglo(numeros);
+        System.out.println("Arreglo ordenado:");
+        imprimirArreglo(numeros);
+    }
+
+    // Método para imprimir el arreglo
+    public static void imprimirArreglo(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    // Método para encontrar el número mayor
+    public static int encontrarMayor(int[] arr) {
+        int mayor = arr[0];
+        for (int num : arr) {
+            if (num > mayor) {
+                mayor = num;
+            }
+        }
+        return mayor;
+    }
+
+    // Método para calcular el promedio
+    public static double calcularPromedio(int[] arr) {
+        int suma = 0;
+        for (int num : arr) {
+            suma += num;
+        }
+        return (double) suma / arr.length;
+    }
+
+    // Método para invertir el arreglo
+    public static void invertirArreglo(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n / 2; i++) {
+            int temp = arr[i];
+            arr[i] = arr[n - 1 - i];
+            arr[n - 1 - i] = temp;
         }
     }
+
+    // Método para ordenar el arreglo (puedes usar el algoritmo de burbuja)
+    public static void ordenarArreglo(int[] arr) {
+
+        Arrays.sort(arr);
+    }
 }
+
+
